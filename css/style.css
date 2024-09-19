@@ -2,6 +2,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body {
+    background-color: #F0B67F;
+}
   /* Remove margins and padding from the list */
   ul {
     margin: 0;
@@ -66,14 +69,14 @@
   
   .close:hover {
     background-color: #f44336;
-    color: white;
+    color: #EEF5DB;
   }
   
   /* Style the header */
   .header {
-    background-color: #f44336;
+    background-color: #FE5F55;
     padding: 30px 40px;
-    color: white;
+    color: #EEF5DB;
     text-align: center;
   }
   
@@ -99,7 +102,7 @@
   .addBtn {
     padding: 10px;
     width: 25%;
-    background: #d9d9d9;
+    background: #C7EFCF;
     color: #555;
     float: left;
     text-align: center;
@@ -110,5 +113,5 @@
   }
   
   .addBtn:hover {
-    background-color: #bbb;
+    background-color: #99b19e;
   }
