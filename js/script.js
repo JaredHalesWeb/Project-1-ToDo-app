@@ -19,7 +19,7 @@ for (i = 0; i < close.length; i++) {
 }
 
 // Add a "checked" symbol when clicking on a list item
-var list = document.querySelector('ul');
+var list = document.getElementById('containerContainer');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
@@ -27,20 +27,20 @@ list.addEventListener('click', function(ev) {
 }, false);
 
 // Create a new list item when clicking on the "Add" button
-function newActivity() {
-  var li = document.createElement("li");
-  var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
+function newActivity(creation) {
+  const prev = creation.previousElementSibling;
+  const inputValue = prev.value
   if (inputValue === '') {
     alert("You must write something!");
   } else if (inputValue === ' ') {
     alert("You must write something!");
   }
-   else {
-    document.getElementById("myUL").appendChild(li);
-  }
-  document.getElementById("myInput").value = "";
+
+  const next = creation.parentElement.nextElementSibling
+  const li = document.createElement("li");
+  li.textContent = inputValue;
+  next.appendChild(li);
+  prev.value = "";
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -48,46 +48,34 @@ function newActivity() {
   span.appendChild(txt);
   li.appendChild(span);
 
-  for (i = 0; i < close.length; i++) {
+
+    span[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+}
+function newList() {
+  const listContainer = document.getElementById("containerContainer")
+  var list = document.createElement("div");
+  list.classList.add('container');
+ var listValue = document.getElementById("listInput").value;
+
+  
+  list.innerHTML = `<div class="header">
+        <h2 class="marge">${listValue}</h2>
+        <input type="text"  placeholder="Title...">
+        <span onclick="newActivity(this)" class="addBtn">Add</span>
+      
+      </div>
+      <ul>
+
+      </ul> `;
+    listContainer.appendChild(list);
+
+
     close[i].onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
     }
-  }
-}
-function newList() {
-  var list = document.createElement("div");
-  list.classList.add('container');
-
-  var headerText = document.createElement("div");
-  headerText.classList.add('header');
-
-  var hText = document.createElement("h2");
-  hText.classList.add('marge');
-
-  var titleInput = document.createElement("input");
-  titleInput.classList.add('myClass');
-
-  var fakeBtn = document.createElement("span");
-  fakeBtn.classList.add('addBtn');
-
-  var listValue = document.getElementById("listInput").value;
-  var l = document.createTextNode(listValue);
-
-  list.appendChild(l);
-
-  if (listValue === '' || listValue.trim() === '') {
-    alert("You must write something!");
-  } else {
-    document.getElementById("containerContainer").appendChild(list);
-    list.appendChild(headerText);
-    list.appendChild(hText);
-    list.appendChild(titleInput);
-    list.appendChild(fakeBtn);
-  }
-
-  document.getElementById("listInput").value = "";
-
-
 }
 
