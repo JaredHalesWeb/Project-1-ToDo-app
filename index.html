@@ -11,18 +11,16 @@
   <input type="text" id="listInput" placeholder="List Name">
   <span onclick="newList()" class="addBtn">Create New list +</span>
   <div id="containerContainer">
-  <div class="container">
-    <div id="myDIV" class="header">
-        <h2 class="marge">My To Do List</h2>
-        <input type="text" id="myInput" placeholder="Title...">
-        <span onclick="newActivity(this)" class="addBtn">Add</span>
-      
-      </div>
-      <ul id="myUL">
-
-      </ul>
-      
-    </div> 
+    <div class="container">
+      <div id="myDIV" class="header">
+          <h2 class="marge">My To Do List</h2>
+          <input type="text" id="myInput" placeholder="Title...">
+          <span onclick="newActivity(this)" class="addBtn">Add</span>
+        </div>
+        <ul id="myUL">
+        </ul>
+        <button class="deleteBtn" onclick="deleteList(this)"></button>
+      </div> 
   </div>
 </body>
 </html>

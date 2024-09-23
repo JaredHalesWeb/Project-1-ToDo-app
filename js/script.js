@@ -49,7 +49,7 @@ function newActivity(creation) {
   li.appendChild(span);
 
 
-    span[i].onclick = function() {
+    span.onclick = function() {
       var div = this.parentElement;
       div.style.display = "none";
     }
@@ -59,6 +59,7 @@ function newList() {
   var list = document.createElement("div");
   list.classList.add('container');
  var listValue = document.getElementById("listInput").value;
+ 
 
   
   list.innerHTML = `<div class="header">
@@ -69,13 +70,23 @@ function newList() {
       </div>
       <ul>
 
-      </ul> `;
+      </ul>
+      <button class="deleteBtn" onclick="deleteList(this)"></button>`;
     listContainer.appendChild(list);
 
 
-    close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = "none";
+    const deleteBtn = list.querySelector('.deleteBtn')
+    deleteBtn.onclick = function() {
+      console.log("click")
+      deleteList(this);
     }
+}
+
+function deleteList(creation) {
+  const confirmation = confirm("Are your sure you want to delete this?");
+  if (confirmation) {
+    const list = creation.closest('.container');
+    list.remove();
+  }
 }
 
