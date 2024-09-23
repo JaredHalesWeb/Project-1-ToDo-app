@@ -66,12 +66,11 @@ function newList() {
         <h2 class="marge">${listValue}</h2>
         <input type="text"  placeholder="Title...">
         <span onclick="newActivity(this)" class="addBtn">Add</span>
-      
+      <button class="deleteBtn" onclick="deleteList(this)">X</button>
       </div>
       <ul>
 
-      </ul>
-      <button class="deleteBtn" onclick="deleteList(this)"></button>`;
+      </ul>`;
     listContainer.appendChild(list);
 
 
